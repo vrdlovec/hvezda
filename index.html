@@ -29,18 +29,23 @@
 :root {
   --ink:#0B0B0C; --noc:#190F2E; --stin:#2E1A54; --hloubka:#622CB5; --viola:#9355FF;
   --svetlo:#AA7EFF; --mlha:#D9D2F6; --ivory:#FEFBF3; --azur:#40C0E7;
+  --okraj:#352C47;
   --sans:'Archivo','Helvetica Neue',Arial,sans-serif;
 }
 * { box-sizing:border-box; }
-html { background:var(--noc); }
-body { margin:0; min-height:100vh; background:var(--noc); color:var(--ivory);
+/* Na desktopu stoji obsah na karte jako na Linktree: kolem ni je plocha
+   v barve --okraj (tu Linktree odvozuje z Noci) a radky tak nejsou
+   pres celou sirku okna. Na mobilu karta splyne s celou obrazovkou. */
+html { background:var(--okraj); }
+body { margin:0; min-height:100vh; background:var(--okraj); color:var(--ivory);
   font-family:var(--sans); font-variation-settings:'wdth' 100,'wght' 400;
   font-size:16px; line-height:1.5; -webkit-font-smoothing:antialiased; }
-main { max-width:580px; margin:0 auto; padding:72px 28px 48px; text-align:center; }
+main { max-width:580px; min-height:calc(100vh - 40px); margin:40px auto 0;
+  padding:64px 28px 48px; background:var(--noc); text-align:left; }
 a:focus-visible { outline:2px solid var(--azur); outline-offset:3px; }
 
 /* Razitko je ctvercova znacka z favicony webu a vede zpet na vrdlovec.cz. */
-.stamp { display:block; width:96px; height:96px; margin:0 auto; color:var(--viola);
+.stamp { display:block; width:96px; height:96px; margin:0; color:var(--viola);
   transition:color .2s ease; }
 .stamp:hover { color:var(--svetlo); }
 .stamp svg { display:block; width:100%; height:100%; }
@@ -48,24 +53,26 @@ h1 { margin:16px 0 0; font-size:26px; font-weight:400; line-height:1;
   font-variation-settings:'wdth' 125,'wght' 900; letter-spacing:-.035em; }
 /* Jmeno a logo stoji od prosby dal nez na Linktree, aby se prosba cetla
    jako samostatna veta, ne jako podtitulek. */
-.prosba { margin:28px auto 32px; max-width:23em; color:var(--mlha);
+.prosba { margin:28px 0 32px; color:var(--mlha);
   font-variation-settings:'wdth' 100,'wght' 500; }
 
 .odkazy { list-style:none; margin:0; padding:0; display:grid; gap:14px; }
-.odkazy a { position:relative; display:flex; align-items:center; justify-content:center;
-  min-height:64px; padding:8px 64px; background:var(--stin); color:var(--ivory);
+.odkazy a { position:relative; display:flex; align-items:center; justify-content:flex-start;
+  min-height:64px; padding:8px 16px 8px 84px; background:var(--stin); color:var(--ivory);
   text-decoration:none; font-variation-settings:'wdth' 100,'wght' 500; line-height:1.2;
   transition:background-color .2s ease; }
 .odkazy a:hover, .odkazy a:focus-visible { background:var(--hloubka); }
 .odkazy a:active { background:var(--viola); }
+.odkazy .sit { color:var(--mlha); margin-left:1em; }
 .odkazy img { position:absolute; left:8px; top:50%; width:48px; height:48px;
   margin-top:-24px; }
 
 /* Citat stoji tam, kde mel Linktree paticku, a ma velikost jejiho spodniho radku. */
-.citat { margin:48px 0 0; font-size:12px; color:var(--mlha); }
+.citat { margin:48px 0 0; text-align:right; font-size:12px; color:var(--mlha); }
 .citat cite { font-style:normal; }
 
-@media (max-width:480px) { main { padding:48px 16px 40px; } }
+@media (max-width:620px) { html, body { background:var(--noc); }
+  main { margin:0; min-height:100vh; padding:48px 16px 40px; } }
 @media (prefers-reduced-motion:reduce) { * { transition:none !important; } }
 </style>
 </head>
@@ -73,21 +80,21 @@ h1 { margin:16px 0 0; font-size:26px; font-weight:400; line-height:1;
 <main>
   <a class="stamp" href="https://vrdlovec.cz/" aria-label="vrdlovec.cz"><svg viewBox="0 0 1000 1000" aria-hidden="true" focusable="false"><path d="M0 0H1000V1000H0Z" fill="currentColor"/><path d="M33.3 682.5V0L824.4 0Q863.6 30.5 885.7 74.6Q913.3 129.8 913.3 193.6Q913.3 267 880.9 323.8Q848.5 380.7 785.8 414.7L930.3 682.5H633.8L523.2 454H295.8V682.5ZM295.8 272.3H574.3Q604 272.3 624.2 253.7Q644.4 235.1 644.4 202.1Q644.4 179.8 634.8 164.4Q625.3 149 609.9 141Q594.5 133 574.3 133H295.8Z" fill="#0B0B0C"/></svg></a>
   <h1>VRDLOVEC</h1>
-  <p class="prosba">Prosím o hvězdičky. Vyhledávače je čtou pozorněji než cokoli, co napíšu.</p>
+  <p class="prosba">Prosím o hvězdičky.<br>Vyhledávače je čtou pozorněji než cokoli, co napíšu.</p>
 
   <ul class="odkazy">
-    <li><a href="https://g.page/r/CZZ0tslixizpEBM/review"><img src="img/golda.webp" alt="" width="48" height="48">Golda — Google</a></li>
-    <li><a href="https://facebook.com/golda.cz"><img src="img/golda.webp" alt="" width="48" height="48">Golda — Facebook</a></li>
-    <li><a href="https://www.firmy.cz/detail/14075609-golda-praha-liben.html#pridat-hodnoceni"><img src="img/golda.webp" alt="" width="48" height="48">Golda — Firmy.cz</a></li>
-    <li><a href="https://g.page/r/CXV3O7-eX3C3EBM/review"><img src="img/zajistovaci-fond.webp" alt="" width="48" height="48">Zajišťovací fond — Google</a></li>
-    <li><a href="https://facebook.com/capcon.cz"><img src="img/zajistovaci-fond.webp" alt="" width="48" height="48">Zajišťovací fond — Facebook</a></li>
-    <li><a href="https://www.firmy.cz/detail/13319448-zajistovaci-fond-praha-liben.html#pridat-hodnoceni"><img src="img/zajistovaci-fond.webp" alt="" width="48" height="48">Zajišťovací fond — Firmy.cz</a></li>
-    <li><a href="https://g.page/r/CUldyXBRb6ANEBM/review"><img src="img/drevosklad.webp" alt="" width="48" height="48">Dřevosklad — Google</a></li>
-    <li><a href="https://www.facebook.com/drevosklad"><img src="img/drevosklad.webp" alt="" width="48" height="48">Dřevosklad — Facebook</a></li>
-    <li><a href="https://www.firmy.cz/detail/677915-drevosklad-vichova-nad-jizerou-horni-sytova.html#pridat-hodnoceni"><img src="img/drevosklad.webp" alt="" width="48" height="48">Dřevosklad — Firmy.cz</a></li>
-    <li><a href="https://g.page/r/CU9Iq5xqj9mqEBM/review"><img src="img/yoga-karlin.webp" alt="" width="48" height="48">Yoga Karlín — Google</a></li>
-    <li><a href="https://facebook.com/yogakarlin"><img src="img/yoga-karlin.webp" alt="" width="48" height="48">Yoga Karlín — Facebook</a></li>
-    <li><a href="https://www.firmy.cz/detail/13029848-yoga-karlin-praha.html#pridat-hodnoceni"><img src="img/yoga-karlin.webp" alt="" width="48" height="48">Yoga Karlín — Firmy.cz</a></li>
+    <li><a href="https://g.page/r/CZZ0tslixizpEBM/review"><img src="img/golda.webp" alt="" width="48" height="48"><span>Golda <span class="sit">Google</span></span></a></li>
+    <li><a href="https://facebook.com/golda.cz"><img src="img/golda.webp" alt="" width="48" height="48"><span>Golda <span class="sit">Facebook</span></span></a></li>
+    <li><a href="https://www.firmy.cz/detail/14075609-golda-praha-liben.html#pridat-hodnoceni"><img src="img/golda.webp" alt="" width="48" height="48"><span>Golda <span class="sit">Firmy.cz</span></span></a></li>
+    <li><a href="https://g.page/r/CXV3O7-eX3C3EBM/review"><img src="img/zajistovaci-fond.webp" alt="" width="48" height="48"><span>Zajišťovací fond <span class="sit">Google</span></span></a></li>
+    <li><a href="https://facebook.com/capcon.cz"><img src="img/zajistovaci-fond.webp" alt="" width="48" height="48"><span>Zajišťovací fond <span class="sit">Facebook</span></span></a></li>
+    <li><a href="https://www.firmy.cz/detail/13319448-zajistovaci-fond-praha-liben.html#pridat-hodnoceni"><img src="img/zajistovaci-fond.webp" alt="" width="48" height="48"><span>Zajišťovací fond <span class="sit">Firmy.cz</span></span></a></li>
+    <li><a href="https://g.page/r/CUldyXBRb6ANEBM/review"><img src="img/drevosklad.webp" alt="" width="48" height="48"><span>Dřevosklad <span class="sit">Google</span></span></a></li>
+    <li><a href="https://www.facebook.com/drevosklad"><img src="img/drevosklad.webp" alt="" width="48" height="48"><span>Dřevosklad <span class="sit">Facebook</span></span></a></li>
+    <li><a href="https://www.firmy.cz/detail/677915-drevosklad-vichova-nad-jizerou-horni-sytova.html#pridat-hodnoceni"><img src="img/drevosklad.webp" alt="" width="48" height="48"><span>Dřevosklad <span class="sit">Firmy.cz</span></span></a></li>
+    <li><a href="https://g.page/r/CU9Iq5xqj9mqEBM/review"><img src="img/yoga-karlin.webp" alt="" width="48" height="48"><span>Yoga Karlín <span class="sit">Google</span></span></a></li>
+    <li><a href="https://facebook.com/yogakarlin"><img src="img/yoga-karlin.webp" alt="" width="48" height="48"><span>Yoga Karlín <span class="sit">Facebook</span></span></a></li>
+    <li><a href="https://www.firmy.cz/detail/13029848-yoga-karlin-praha.html#pridat-hodnoceni"><img src="img/yoga-karlin.webp" alt="" width="48" height="48"><span>Yoga Karlín <span class="sit">Firmy.cz</span></span></a></li>
   </ul>
 
   <p class="citat">„Život je výsledek všech vašich rozhodnutí.“ —&nbsp;<cite>Albert&nbsp;Camus</cite></p>
