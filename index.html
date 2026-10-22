@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VRDLOVEC · hvězdičky</title>
+<meta name="description" content="Hodnocení firem Richarda Vrdlovce na Googlu, Facebooku a Firmy.cz: Golda, Zajišťovací fond, Dřevosklad a Yoga Karlín.">
+<link rel="canonical" href="https://hvezda.vrdlovec.cz/">
+<meta name="theme-color" content="#190F2E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000'%3E%3Cpath d='M0 0H1000V1000H0Z' fill='%239355FF'/%3E%3Cpath d='M33.3 682.5V0L824.4 0Q863.6 30.5 885.7 74.6Q913.3 129.8 913.3 193.6Q913.3 267 880.9 323.8Q848.5 380.7 785.8 414.7L930.3 682.5H633.8L523.2 454H295.8V682.5ZM295.8 272.3H574.3Q604 272.3 624.2 253.7Q644.4 235.1 644.4 202.1Q644.4 179.8 634.8 164.4Q625.3 149 609.9 141Q594.5 133 574.3 133H295.8Z' fill='%230B0B0C'/%3E%3C/svg%3E">
+<style>
+@font-face {
+  font-family: 'Archivo'; font-style: normal; font-weight: 100 900; font-stretch: 62% 125%;
+  font-display: swap; src: url(font/archivo-k3kQo8UDI-1M0wlSfdboLnnA.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: 'Archivo'; font-style: normal; font-weight: 100 900; font-stretch: 62% 125%;
+  font-display: swap; src: url(font/archivo-k3kQo8UDI-1M0wlSfdfoLnnA.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Archivo'; font-style: normal; font-weight: 100 900; font-stretch: 62% 125%;
+  font-display: swap; src: url(font/archivo-k3kQo8UDI-1M0wlSfdnoLg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* Paleta a pismo jsou z vrdlovec.cz. Rozmery z Linktree, ze ktereho se
+   stranka kopiruje: sloupec 524 px, radky 64 px s mezerou 14, nahled 48 px. */
+:root {
+  --ink:#0B0B0C; --noc:#190F2E; --stin:#2E1A54; --hloubka:#622CB5; --viola:#9355FF;
+  --svetlo:#AA7EFF; --mlha:#D9D2F6; --ivory:#FEFBF3; --azur:#40C0E7;
+  --sans:'Archivo','Helvetica Neue',Arial,sans-serif;
+}
+* { box-sizing:border-box; }
+html { background:var(--noc); }
+body { margin:0; min-height:100vh; background:var(--noc); color:var(--ivory);
+  font-family:var(--sans); font-variation-settings:'wdth' 100,'wght' 400;
+  font-size:16px; line-height:1.5; -webkit-font-smoothing:antialiased; }
+main { max-width:580px; margin:0 auto; padding:72px 28px 48px; text-align:center; }
+a:focus-visible { outline:2px solid var(--azur); outline-offset:3px; }
+
+/* Razitko je ctvercova znacka z favicony webu a vede zpet na vrdlovec.cz. */
+.stamp { display:block; width:96px; height:96px; margin:0 auto; color:var(--viola);
+  transition:color .2s ease; }
+.stamp:hover { color:var(--svetlo); }
+.stamp svg { display:block; width:100%; height:100%; }
+h1 { margin:16px 0 0; font-size:26px; font-weight:400; line-height:1;
+  font-variation-settings:'wdth' 125,'wght' 900; letter-spacing:-.035em; }
+/* Jmeno a logo stoji od prosby dal nez na Linktree, aby se prosba cetla
+   jako samostatna veta, ne jako podtitulek. */
+.prosba { margin:28px auto 32px; max-width:23em; color:var(--mlha);
+  font-variation-settings:'wdth' 100,'wght' 500; }
+
+.odkazy { list-style:none; margin:0; padding:0; display:grid; gap:14px; }
+.odkazy a { position:relative; display:flex; align-items:center; justify-content:center;
+  min-height:64px; padding:8px 64px; background:var(--stin); color:var(--ivory);
+  text-decoration:none; font-variation-settings:'wdth' 100,'wght' 500; line-height:1.2;
+  transition:background-color .2s ease; }
+.odkazy a:hover, .odkazy a:focus-visible { background:var(--hloubka); }
+.odkazy a:active { background:var(--viola); }
+.odkazy img { position:absolute; left:8px; top:50%; width:48px; height:48px;
+  margin-top:-24px; }
+
+/* Citat stoji tam, kde mel Linktree paticku, a ma velikost jejiho spodniho radku. */
+.citat { margin:48px 0 0; font-size:12px; color:var(--mlha); }
+.citat cite { font-style:normal; }
+
+@media (max-width:480px) { main { padding:48px 16px 40px; } }
+@media (prefers-reduced-motion:reduce) { * { transition:none !important; } }
+</style>
+</head>
+<body>
+<main>
+  <a class="stamp" href="https://vrdlovec.cz/" aria-label="vrdlovec.cz"><svg viewBox="0 0 1000 1000" aria-hidden="true" focusable="false"><path d="M0 0H1000V1000H0Z" fill="currentColor"/><path d="M33.3 682.5V0L824.4 0Q863.6 30.5 885.7 74.6Q913.3 129.8 913.3 193.6Q913.3 267 880.9 323.8Q848.5 380.7 785.8 414.7L930.3 682.5H633.8L523.2 454H295.8V682.5ZM295.8 272.3H574.3Q604 272.3 624.2 253.7Q644.4 235.1 644.4 202.1Q644.4 179.8 634.8 164.4Q625.3 149 609.9 141Q594.5 133 574.3 133H295.8Z" fill="#0B0B0C"/></svg></a>
+  <h1>VRDLOVEC</h1>
+  <p class="prosba">Prosím o hvězdičky. Vyhledávače je čtou pozorněji než cokoli, co napíšu.</p>
+
+  <ul class="odkazy">
+    <li><a href="https://g.page/r/CZZ0tslixizpEBM/review"><img src="img/golda.webp" alt="" width="48" height="48">Golda — Google</a></li>
+    <li><a href="https://facebook.com/golda.cz"><img src="img/golda.webp" alt="" width="48" height="48">Golda — Facebook</a></li>
+    <li><a href="https://www.firmy.cz/detail/14075609-golda-praha-liben.html#pridat-hodnoceni"><img src="img/golda.webp" alt="" width="48" height="48">Golda — Firmy.cz</a></li>
+    <li><a href="https://g.page/r/CXV3O7-eX3C3EBM/review"><img src="img/zajistovaci-fond.webp" alt="" width="48" height="48">Zajišťovací fond — Google</a></li>
+    <li><a href="https://facebook.com/capcon.cz"><img src="img/zajistovaci-fond.webp" alt="" width="48" height="48">Zajišťovací fond — Facebook</a></li>
+    <li><a href="https://www.firmy.cz/detail/13319448-zajistovaci-fond-praha-liben.html#pridat-hodnoceni"><img src="img/zajistovaci-fond.webp" alt="" width="48" height="48">Zajišťovací fond — Firmy.cz</a></li>
+    <li><a href="https://g.page/r/CUldyXBRb6ANEBM/review"><img src="img/drevosklad.webp" alt="" width="48" height="48">Dřevosklad — Google</a></li>
+    <li><a href="https://www.facebook.com/drevosklad"><img src="img/drevosklad.webp" alt="" width="48" height="48">Dřevosklad — Facebook</a></li>
+    <li><a href="https://www.firmy.cz/detail/677915-drevosklad-vichova-nad-jizerou-horni-sytova.html#pridat-hodnoceni"><img src="img/drevosklad.webp" alt="" width="48" height="48">Dřevosklad — Firmy.cz</a></li>
+    <li><a href="https://g.page/r/CU9Iq5xqj9mqEBM/review"><img src="img/yoga-karlin.webp" alt="" width="48" height="48">Yoga Karlín — Google</a></li>
+    <li><a href="https://facebook.com/yogakarlin"><img src="img/yoga-karlin.webp" alt="" width="48" height="48">Yoga Karlín — Facebook</a></li>
+    <li><a href="https://www.firmy.cz/detail/13029848-yoga-karlin-praha.html#pridat-hodnoceni"><img src="img/yoga-karlin.webp" alt="" width="48" height="48">Yoga Karlín — Firmy.cz</a></li>
+  </ul>
+
+  <p class="citat">„Život je výsledek všech vašich rozhodnutí.“ —&nbsp;<cite>Albert&nbsp;Camus</cite></p>
+</main>
+</body>
+</html>
